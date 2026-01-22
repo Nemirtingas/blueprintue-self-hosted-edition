@@ -1,0 +1,17 @@
+services:
+  blueprintue:
+    build:
+      context: build_context
+      dockerfile: dockerfile
+    container_name: blueprintue
+    hostname: blueprintue
+    env_file: .env
+    logging:
+      options:
+        max-size: 10m
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./storage:/opt/blueprintue-self-hosted-edition/storage"
+      - "./medias:/opt/blueprintue-self-hosted-edition/www/medias"
+    restart: "always"
