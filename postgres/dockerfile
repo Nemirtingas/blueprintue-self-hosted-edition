@@ -1,0 +1,6 @@
+FROM blueprintue/blueprintue-self-hosted-edition
+RUN apk --update --no-cache add \
+      php84-pdo_pgsql
+
+COPY postgres_fix.sh /postgres_fix.sh
+ENTRYPOINT ["/postgres_fix.sh"]
